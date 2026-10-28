@@ -1,0 +1,31 @@
+START
+	INPUT price, quantity, member
+	IF price is not a whole number
+		OR price <= 0
+		OR quantity is not a whole number
+		OR quantity <= 0
+		OR member is not a boolean THEN
+		OUTPUT "input not valid"
+		STOP
+		
+	ELSE 
+		subTotal <- price * quantity
+		IF member = TRUE THEN
+			discount <- subTotal * 10/100
+		ELSE 
+			discount <- 0
+		END IF
+		
+		total <- subTotal - discount
+		IF total >= 250000 THEN
+			ongkir <- 0
+		ELSE
+			ongkir <- 15000
+		END IF
+		
+		totalPayment <- total + ongkir
+		OUTPUT subTotal, discount, total, ongkir, totalPayment
+	END IF
+END
+	
+
